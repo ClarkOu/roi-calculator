@@ -1,26 +1,41 @@
-# ROI 计算器（Streamlit）
+# ROI Calculator (Streamlit)
 
-业务流程自动化效益评估工具：用于估算单个/多个流程环节的年节省工时、FTE 释放与效率提升。
+A business process automation ROI estimator. It helps estimate annual time savings, FTE capacity released, and efficiency improvement for one or multiple process steps.
 
-## 功能
+## Features
 
-- 添加多个“环节”并汇总统计
-- 表格展示明细（点击行选中）
-- 对选中行进行编辑（弹窗）/删除
-- 导出 CSV
+- Add multiple process steps and view totals
+- Show a detail table (click a row to select)
+- Edit (dialog) / delete the selected row
+- Export to CSV
 
-> 说明：由于 Streamlit 原生表格组件限制，无法在表格单元格内直接嵌入按钮；当前实现为“选中行 → 下方按钮操作”。
+> Note: Due to limitations of Streamlit's native table components, it's not possible to embed buttons directly inside table cells. The current interaction is: select a row → use the action buttons below.
 
-## 本地运行
+## How it works (method)
 
-1) 克隆仓库
+This tool models a process as a list of steps. For each step, you input the baseline workload and the expected efficiency gain after automation. The app then aggregates all steps to estimate:
+
+- Annual time saved (hours/year)
+- FTE capacity released (by converting hours to FTE based on your working-hour assumptions)
+- Efficiency improvement (before vs after)
+
+Typical workflow:
+
+1) Add one step per activity in the process
+2) Review the table and totals
+3) Select a row to edit or delete if the assumptions change
+4) Export the step list to CSV for sharing
+
+## Run locally
+
+1) Clone the repo
 
 ```bash
 git clone https://github.com/ClarkOu/roi-calculator.git
 cd roi-calculator
 ```
 
-2) 创建虚拟环境并安装依赖
+2) Create a virtual environment and install dependencies
 
 ```bash
 python3 -m venv .venv
@@ -28,29 +43,20 @@ source .venv/bin/activate
 pip install -r requirements.txt
 ```
 
-3) 启动
+3) Start the app
 
 ```bash
 streamlit run app.py
 ```
 
-浏览器打开终端输出的地址（通常是 http://localhost:8501）。
+Open the URL printed in the terminal (usually http://localhost:8501).
 
-## 部署（Streamlit Community Cloud）
+## Project structure
 
-1) 打开 https://share.streamlit.io/ 并用 GitHub 登录
-2) New app / Deploy an app
-3) 选择仓库：`ClarkOu/roi-calculator`
-4) Branch：`main`
-5) Main file path：`app.py`
-6) Deploy
+- app.py: Streamlit app
+- roi_calculator.py: original calculator script (CLI / logic reference)
+- requirements.txt: dependencies
 
-## 项目结构
+## Notes
 
-- app.py：Streamlit 前端
-- roi_calculator.py：原始计算器脚本（命令行/逻辑参考）
-- requirements.txt：依赖
-
-## 开发备注
-
-- CSV 导出为 UTF-8 with BOM（utf-8-sig），方便 Excel 直接打开不乱码。
+- CSV export uses UTF-8 with BOM (`utf-8-sig`) so Excel can open it without garbled characters.
