@@ -1,0 +1,12 @@
+.venv/
+__pycache__/
+*.py[cod]
+*.pyo
+*.pyd
+.Python
+.DS_Store
+.streamlit/
+
+# IDE
+.vscode/
+.idea/
