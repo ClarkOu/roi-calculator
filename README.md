@@ -1,13 +1,14 @@
-# ROI Calculator (Streamlit)
+# 人效提升与人力释放测算器 (Streamlit)
 
-A business process automation ROI estimator. It helps estimate annual time savings, FTE capacity released, and efficiency improvement for one or multiple process steps.
+A business process automation efficiency estimator for HR and enterprise teams. It helps estimate annual time savings, FTE capacity released, and efficiency improvement for one or multiple process steps.
 
 ## Features
 
 - Add multiple process steps and view totals
+- Capture assessment metadata (scenario and department)
 - Show a detail table (click a row to select)
 - Edit (dialog) / delete the selected row
-- Export to CSV
+- Export to CSV with summary interpretation row
 
 > Note: Due to limitations of Streamlit's native table components, it's not possible to embed buttons directly inside table cells. The current interaction is: select a row → use the action buttons below.
 
@@ -21,10 +22,11 @@ This tool models a process as a list of steps. For each step, you input the base
 
 Typical workflow:
 
-1) Add one step per activity in the process
-2) Review the table and totals
-3) Select a row to edit or delete if the assumptions change
-4) Export the step list to CSV for sharing
+1) Fill in scenario and department information
+2) Add one step per activity in the process
+3) Review the table, live metrics, and totals
+4) Select a row to edit or delete if assumptions change
+5) Export the step list to CSV with summary interpretation for sharing
 
 ## Run locally
 
