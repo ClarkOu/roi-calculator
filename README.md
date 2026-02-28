@@ -1,36 +1,38 @@
-# 人效提升与人力释放测算器 (Streamlit)
+# Workforce Efficiency & FTE Release Estimator (Streamlit)
 
-A business process automation efficiency estimator for HR and enterprise teams. It helps estimate annual time savings, FTE capacity released, and efficiency improvement for one or multiple process steps.
+[中文](README.zh.md)
+
+An automation efficiency estimator for HR and enterprise teams. It helps estimate annual time savings, FTE capacity released, and efficiency improvement across one or multiple process steps.
 
 ## Features
 
 - Add multiple process steps and view totals
 - Capture assessment metadata (scenario and department)
-- Show a detail table (click a row to select)
+- Show a detailed table (select one row at a time)
 - Edit (dialog) / delete the selected row
-- Export to CSV with summary interpretation row
+- Export to CSV with a summary interpretation row
 
-> Note: Due to limitations of Streamlit's native table components, it's not possible to embed buttons directly inside table cells. The current interaction is: select a row → use the action buttons below.
+> Note: Due to Streamlit table limitations, action buttons cannot be embedded directly in cells. Current interaction: select a row → use the action buttons below.
 
-## How it works (method)
+## How It Works
 
-This tool models a process as a list of steps. For each step, you input the baseline workload and the expected efficiency gain after automation. The app then aggregates all steps to estimate:
+This tool models a process as a list of steps. For each step, you enter baseline workload and expected post-automation efficiency. The app then aggregates all steps to estimate:
 
 - Annual time saved (hours/year)
-- FTE capacity released (by converting hours to FTE based on your working-hour assumptions)
-- Efficiency improvement (before vs after)
+- FTE capacity released (hours converted to FTE based on working-hour assumptions)
+- Efficiency improvement (before vs. after)
 
 Typical workflow:
 
 1) Fill in scenario and department information
-2) Add one step per activity in the process
+2) Add one step per process activity
 3) Review the table, live metrics, and totals
-4) Select a row to edit or delete if assumptions change
-5) Export the step list to CSV with summary interpretation for sharing
+4) Select a row to edit or delete when assumptions change
+5) Export CSV with summary interpretation for sharing
 
-## Run locally
+## Run Locally
 
-1) Clone the repo
+1) Clone the repository
 
 ```bash
 git clone https://github.com/ClarkOu/roi-calculator.git
@@ -53,7 +55,7 @@ streamlit run app.py
 
 Open the URL printed in the terminal (usually http://localhost:8501).
 
-## Project structure
+## Project Structure
 
 - app.py: Streamlit app
 - roi_calculator.py: original calculator script (CLI / logic reference)
@@ -61,4 +63,4 @@ Open the URL printed in the terminal (usually http://localhost:8501).
 
 ## Notes
 
-- CSV export uses UTF-8 with BOM (`utf-8-sig`) so Excel can open it without garbled characters.
+- CSV export uses UTF-8 with BOM (`utf-8-sig`) so Excel opens it without garbled characters.
